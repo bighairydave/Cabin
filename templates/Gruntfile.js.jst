@@ -84,7 +84,11 @@ module.exports = function (grunt) {
     },<% if (deployTask === 'gh-pages') { %>
     'gh-pages': {
       options: {
-        base: 'dist'
+        base: 'dist',
+        // Defaults to pushing to master for a user/organization repo,
+        // note that you should store your source in a non-master branch
+        // If pushing to a project repo, delete this line
+        branch: 'master'
       },
       src: ['**']
     }<% } else if (deployTask === 's3') { %>
